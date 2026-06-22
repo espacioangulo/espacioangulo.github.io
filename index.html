@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Espacio Ángulo — conversación, escucha y creación</title>
+  <meta name="description" content="Encuentros de conversación, escucha y creación para ordenar una situación, traer una pregunta y mirarla desde otro lugar.">
+  <meta name="theme-color" content="#f2ecdf">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="site-wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="Espacio Ángulo">Espacio Ángulo</a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#que-es">Qué es</a>
+        <a href="#concertar">Concertar cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="site-wrap hero-inner">
+        <h1>Espacio Ángulo</h1>
+        <p class="hero-text">Encuentros de conversación, escucha y creación para ordenar una situación, traer una pregunta y mirarla desde otro lugar.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#concertar">Concertar cita</a>
+          <a class="btn secondary" href="#que-es">Leer más</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tag-band" aria-label="Temas posibles">
+      <div class="site-wrap tag-scroll" id="tag-scroll" aria-hidden="false">
+        <div id="tag-track" class="tag-track"></div>
+      </div>
+    </section>
+
+    <section id="que-es" class="section first-section">
+      <div class="site-wrap two-col">
+        <div>
+          <p class="kicker">Qué es</p>
+          <h2>Conversación conducida.</h2>
+        </div>
+        <div>
+          <p class="lead">En Espacio Ángulo se hacen sesiones individuales online conducidas por humanos. Tratamos de reconstruir el lenguaje y la manera en que miramos al mundo.</p>
+          <div class="micro-grid">
+            <article class="micro-card">
+              <h3>Escucha</h3>
+              <p>Una conversación sin prisa, sin juicio rápido y sin respuesta prefabricada.</p>
+            </article>
+            <article class="micro-card">
+              <h3>Perspectiva</h3>
+              <p>Una mirada externa para observar matices, tensiones y posibilidades que desde dentro no siempre aparecen.</p>
+            </article>
+            <article class="micro-card">
+              <h3>Formato online</h3>
+              <p>Sesiones de una hora. El encuentro se hace por videollamada, aunque es íntegramente por audio.</p>
+            </article>
+          </div>
+          <p class="format-note">Tras solicitar la cita y completar el pago, recibirás un email de confirmación con el enlace de la sesión.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="concertar" class="section booking-section">
+      <div class="site-wrap booking-panel">
+        <div class="booking-copy">
+          <p class="kicker">Concertar cita</p>
+          <h2>Solicita un encuentro.</h2>
+          <p class="session-line">Sesión online — <span data-price>60 €</span></p>
+        </div>
+
+        <form id="booking-form" class="form" method="post">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="nombre" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="preferred-date">Día preferido</label>
+              <input id="preferred-date" name="dia_preferido" type="date" required>
+            </div>
+            <div class="field">
+              <label for="preferred-time">Hora preferida</label>
+              <input id="preferred-time" name="hora_preferida" type="time" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="note">Nota breve opcional</label>
+            <textarea id="note" name="nota" placeholder="Si quieres, deja una frase sobre lo que te gustaría traer."></textarea>
+          </div>
+
+          <div class="checks">
+            <label class="check">
+              <input name="privacidad_condiciones" type="checkbox" required>
+              <span>He leído y acepto la <button type="button" class="legal-link" data-modal-target="legal-privacidad">política de privacidad</button>, las <button type="button" class="legal-link" data-modal-target="legal-condiciones">condiciones del servicio</button> y la información sobre <button type="button" class="legal-link" data-modal-target="legal-desistimiento">desistimiento</button>.</span>
+            </label>
+          </div>
+
+          <button class="btn full" type="submit">Continuar al pago</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Al continuar podrás completar el pago de forma segura.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="site-wrap footer-inner">
+      <div>© <span data-year></span> Espacio Ángulo</div>
+      <nav aria-label="Legal">
+        <button type="button" data-modal-target="legal-aviso">Aviso legal</button>
+        <button type="button" data-modal-target="legal-privacidad">Privacidad</button>
+        <button type="button" data-modal-target="legal-condiciones">Condiciones</button>
+        <button type="button" data-modal-target="legal-desistimiento">Desistimiento</button>
+        <button type="button" data-modal-target="legal-cookies">Cookies</button>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="legal-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
+    <div class="modal-panel">
+      <div class="modal-head">
+        <h2 id="legal-modal-title">Información</h2>
+        <button type="button" class="modal-close" aria-label="Cerrar" data-modal-close>×</button>
+      </div>
+      <div id="legal-modal-body" class="modal-body"></div>
+      <div class="modal-foot">
+        <button type="button" class="modal-close-text" data-modal-close>Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-templates" aria-hidden="true">
+    <section id="legal-aviso" data-title="Aviso legal">
+      <p><strong>Titular:</strong> Espacio Ángulo. Los datos fiscales completos se facilitarán en la documentación de contratación y facturación correspondiente.</p>
+      <p><strong>Contacto:</strong> mediante el formulario de la web.</p>
+      <h3>Objeto</h3>
+      <p>Esta web informa y permite solicitar encuentros online de conversación, escucha y creación.</p>
+      <h3>Naturaleza del servicio</h3>
+      <p>Espacio Ángulo ofrece un servicio conversacional no sanitario. No se realizan terapia, psicoterapia, diagnóstico, tratamiento psicológico ni intervención médica o sanitaria. El servicio no sustituye atención médica, psicológica o psiquiátrica.</p>
+      <h3>Uso de la web</h3>
+      <p>La persona usuaria se compromete a utilizar la web de forma lícita, correcta y respetuosa, sin introducir datos falsos ni realizar usos que puedan afectar al funcionamiento del sitio.</p>
+    </section>
+
+    <section id="legal-privacidad" data-title="Política de privacidad">
+      <p><strong>Responsable:</strong> Espacio Ángulo. Los datos fiscales completos se facilitarán en la documentación de contratación y facturación correspondiente.</p>
+      <h3>Datos tratados</h3>
+      <p>Se recogen los datos introducidos en el formulario: nombre, email, fecha y hora preferidas, nota opcional, código de solicitud y aceptación de condiciones.</p>
+      <h3>Finalidad</h3>
+      <p>Gestionar solicitudes, coordinar encuentros online, confirmar disponibilidad, tramitar pagos y responder comunicaciones relacionadas con el servicio.</p>
+      <h3>Base jurídica</h3>
+      <p>La base jurídica es la solicitud de medidas precontractuales, la ejecución del servicio solicitado y el consentimiento prestado al enviar el formulario.</p>
+      <h3>Conservación</h3>
+      <p>Los datos se conservarán durante el tiempo necesario para gestionar la solicitud y cumplir obligaciones administrativas, fiscales o legales aplicables.</p>
+      <h3>Destinatarios</h3>
+      <p>Podrán intervenir proveedores técnicos necesarios para el funcionamiento de la web, el formulario y el pago, como Formspree, Stripe, GitHub Pages o servicios equivalentes.</p>
+      <h3>Derechos</h3>
+      <p>Puedes solicitar acceso, rectificación, supresión, oposición, limitación o portabilidad de tus datos mediante el canal de contacto de la web. También puedes reclamar ante la Agencia Española de Protección de Datos.</p>
+    </section>
+
+    <section id="legal-condiciones" data-title="Condiciones del servicio">
+      <h3>Objeto</h3>
+      <p>Espacio Ángulo ofrece encuentros individuales online de conversación, escucha y creación.</p>
+      <h3>Formato</h3>
+      <p>La sesión se realiza online, por audio, mediante enlace de videollamada. No es necesario activar cámara. La duración prevista es de una hora.</p>
+      <h3>Precio y pago</h3>
+      <p>El precio de la sesión es de 60 €. El pago se realiza mediante la plataforma indicada durante el proceso de solicitud.</p>
+      <h3>Confirmación</h3>
+      <p>Tras completar el formulario y el pago, recibirás una confirmación por email con el enlace de la sesión. Si el horario solicitado no pudiera confirmarse, se propondrá una alternativa o se realizará la devolución íntegra.</p>
+      <h3>Cancelaciones</h3>
+      <p>Podrás solicitar cambio o cancelación hasta 24 horas antes del encuentro. Si la sesión ya ha sido prestada íntegramente en la fecha acordada, no procederá devolución.</p>
+      <h3>Límites</h3>
+      <p>Este servicio no es sanitario, psicológico ni médico. No está indicado para urgencias, crisis, riesgo personal, violencia, adicciones, ideación suicida o malestar clínico intenso. En esos casos debe acudirse a profesionales o servicios competentes.</p>
+    </section>
+
+    <section id="legal-desistimiento" data-title="Desistimiento">
+      <p>En la contratación online de servicios existe un derecho general de desistimiento de 14 días naturales, salvo excepciones legalmente previstas.</p>
+      <p>Si solicitas que el encuentro se preste antes de que finalice ese plazo y la sesión se realiza íntegramente, aceptas que, una vez prestado el servicio completo, no procederá devolución por desistimiento respecto a esa sesión.</p>
+      <p>Si Espacio Ángulo no pudiera confirmar o realizar el encuentro, se propondrá una nueva fecha o se realizará la devolución íntegra.</p>
+      <p>Podrás solicitar cambio o cancelación hasta 24 horas antes del encuentro mediante el canal de contacto indicado.</p>
+    </section>
+
+    <section id="legal-cookies" data-title="Cookies">
+      <p>Esta web no utiliza cookies propias con finalidad publicitaria o analítica en esta versión.</p>
+      <p>Servicios externos como Stripe, Formspree o GitHub Pages pueden aplicar sus propias tecnologías necesarias para prestar sus servicios, especialmente durante el proceso de formulario o pago.</p>
+    </section>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
