@@ -76,15 +76,35 @@
     setupTagScroller();
   }
 
+
+  function shuffle(items) {
+    const copy = items.slice();
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function escapeHTML(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+
   function renderTags() {
     if (!tagTrack) return;
     const fallback = [
       'traer el bucle', 'ordenar una decisión', 'afinar la sensibilidad',
       'pensar el aburrimiento', 'poner lenguaje', 'cambiar de perspectiva'
     ];
-    const tags = Array.isArray(agenda.etiquetas) && agenda.etiquetas.length ? agenda.etiquetas : fallback;
+    const sourceTags = Array.isArray(agenda.etiquetas) && agenda.etiquetas.length ? agenda.etiquetas : fallback;
+    const tags = shuffle(sourceTags);
     const full = tags.concat(tags, tags);
-    tagTrack.innerHTML = full.map((tag) => `<span class="tag-pill">${tag}</span>`).join('');
+    tagTrack.innerHTML = full.map((tag) => `<span class="tag-pill">${escapeHTML(tag)}</span>`).join('');
   }
 
   function setupTagScroller() {
@@ -199,7 +219,7 @@
       const payload = buildPayload(formData, id);
       const submitButton = form.querySelector('button[type="submit"]');
       submitButton.disabled = true;
-      submitButton.textContent = 'Preparando pago…';
+      submitButton.textContent = 'Continuando…';
       setStatus('Registrando solicitud…', 'muted');
 
       try {
@@ -215,14 +235,14 @@
         if (!res.ok) throw new Error('No se pudo enviar el formulario');
 
         sessionStorage.setItem('espacio_angulo_solicitud', JSON.stringify(payload));
-        setStatus('Redirigiendo al pago seguro…', 'success');
+        setStatus('Redirigiendo…', 'success');
         window.location.href = appendStripeParams(paymentLink, {
           client_reference_id: id,
           prefilled_email: email
         });
       } catch (err) {
         submitButton.disabled = false;
-        submitButton.textContent = 'Continuar al pago';
+        submitButton.textContent = 'Continuar';
         setStatus('No se pudo enviar la solicitud. Inténtalo de nuevo.', 'error');
       }
     });
