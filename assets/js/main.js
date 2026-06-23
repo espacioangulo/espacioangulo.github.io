@@ -113,7 +113,7 @@
     function loop() {
       const now = Date.now();
       if (!isDragging && now > pauseUntil) {
-        tagScroll.scrollLeft += 0.35;
+        tagScroll.scrollLeft += 0.85;
         const resetPoint = tagTrack.scrollWidth / 3;
         if (tagScroll.scrollLeft >= resetPoint) tagScroll.scrollLeft = 0;
       }
