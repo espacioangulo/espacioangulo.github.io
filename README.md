@@ -10,34 +10,44 @@ Web preparada para GitHub Pages.
 4. Branch: `main` y carpeta `/root`.
 5. Guarda y espera a que GitHub publique la URL.
 
-## Configurar formulario y pago
+## Configurar formulario
 
-Edita:
+1. Crea cuenta en Formspree.
+2. Crea un formulario nuevo.
+3. Copia el endpoint tipo `https://formspree.io/f/abcdwxyz`.
+4. Pégalo en:
 
 ```js
 assets/js/config.js
+formEndpoint: "https://formspree.io/f/abcdwxyz"
 ```
 
-Ahí están:
+Formspree recibe los datos del formulario y los envía al email configurado en tu cuenta.
+
+## Configurar pago
+
+1. Crea cuenta en Stripe.
+2. Crea un producto: `Encuentro online · Espacio Ángulo`.
+3. Precio: `60 €`.
+4. Crea un `Payment Link`.
+5. Copia el enlace y pégalo en:
 
 ```js
-formEndpoint: "..."
-stripePaymentLink: "..."
-sessionPrice: "60 €"
-agendaPath: "data/agenda.json"
+assets/js/config.js
+stripePaymentLink: "https://buy.stripe.com/..."
 ```
 
-La web comprueba si una fecha/hora está ocupada leyendo `data/agenda.json`.
+La web añade automáticamente un código de solicitud al enlace de Stripe usando `client_reference_id`, para cruzar el pago con el formulario.
 
 ## Agenda pública
 
-Edita o genera desde el admin local:
+Edita:
 
 ```txt
 data/agenda.json
 ```
 
-Formato:
+Ejemplo:
 
 ```json
 {
@@ -54,54 +64,6 @@ Formato:
 
 No guardes nombres, emails ni notas en `agenda.json`, porque es público.
 
-## Etiquetas
-
-La barra de etiquetas:
-
-- se puede scrollear manualmente;
-- se mueve sola lentamente;
-- mezcla el orden de etiquetas en cada carga;
-- lee las etiquetas desde `data/agenda.json`.
-
-En el admin local puedes escribirlas así:
-
-```txt
-traer el bucle..ordenar una decisión..afinar la sensibilidad
-```
-
-Los dos puntos horizontales `..` separan etiquetas.
-
-## Admin local privado
-
-Dentro de:
-
-```txt
-LOCAL_ADMIN_NO_SUBIR/
-```
-
-hay una herramienta local para Windows:
-
-- `abrir_admin.bat`: abre el programa en Python.
-- `crear_exe.bat`: genera `EspacioAnguloAdmin.exe` con PyInstaller.
-- `espacio_angulo_admin.py`: programa principal.
-
-El admin guarda datos privados en:
-
-```txt
-LOCAL_ADMIN_NO_SUBIR/espacio_angulo_local.db
-```
-
-Ese archivo es local. No se sube a GitHub.
-
-El admin permite:
-
-- crear fichas privadas de personas;
-- guardar email, datos importantes y resumen por sesión;
-- ver agenda privada diaria con nombres;
-- bloquear/liberar horas públicas en `data/agenda.json`;
-- editar etiquetas públicas;
-- subir solo `data/agenda.json` al repositorio usando token de GitHub.
-
 ## Legal
 
-Los textos legales están integrados en ventanas modales de `index.html` y también en páginas HTML separadas. Son orientativos. Revísalos con gestor o asesor antes de cobrar de forma habitual.
+Los textos legales están integrados como ventanas modales en `index.html`. Revísalos con gestor cuando vayas a cobrar de forma habitual.

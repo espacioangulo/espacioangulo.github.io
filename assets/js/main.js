@@ -113,7 +113,7 @@
     function loop() {
       const now = Date.now();
       if (!isDragging && now > pauseUntil) {
-        tagScroll.scrollLeft += 0.85;
+        tagScroll.scrollLeft += 0.55;
         const resetPoint = tagTrack.scrollWidth / 3;
         if (tagScroll.scrollLeft >= resetPoint) tagScroll.scrollLeft = 0;
       }
@@ -137,14 +137,14 @@
     function endDrag() {
       if (!isDragging) return;
       isDragging = false;
-      pauseUntil = Date.now() + 1200;
+      pauseUntil = Date.now() + 350;
       tagScroll.classList.remove('is-dragging');
     }
 
     tagScroll.addEventListener('pointerup', endDrag);
     tagScroll.addEventListener('pointercancel', endDrag);
     tagScroll.addEventListener('pointerleave', endDrag);
-    tagScroll.addEventListener('wheel', () => { pauseUntil = Date.now() + 1600; }, { passive: true });
+    tagScroll.addEventListener('wheel', () => { pauseUntil = Date.now() + 450; }, { passive: true });
 
     loop();
   }
